@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { IoMdArrowDropdown } from "react-icons/io";
+import Dropdown from '@/components/Dropdown';
 import { IoSearch } from "react-icons/io5";
 import { Input } from "@/components/ui/input"
 import {
@@ -62,16 +56,9 @@ const EmployeeTable = () => {
         <div className='w-full h-full flex flex-col bg-white xl:px-4 px-2 py-2 rounded-lg'>
             <div className='w-full flex items-center flex-wrap'>
                 <p className='xl:text-xl md:text-[14px] text-[12px] font-bold flex items-center gap-2 text-left'>Employees{" "}({empldata.length})</p>
-                <div className='px-4 py-2 rounded-full flex items-center gap-2 border border-gray-400 ml-auto'>
+                <div className='w-[120px] flex justify-between items-center gap-2 ml-auto'>
                     <p>All</p>
-                    <DropdownMenu>
-                        <DropdownMenuTrigger className='flex items-center gap-2'>New <IoMdArrowDropdown /></DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                            <DropdownMenuItem>New</DropdownMenuItem>
-                            <DropdownMenuItem>Old</DropdownMenuItem>
-                            <DropdownMenuItem>Ex</DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                    <Dropdown options={["All", "New", "Old", "Ex"]} />
                 </div>
                 <div className='max-w-full w-full my-2 h-[2rem] rounded-lg relative flex items-center ml-auto'>
                     <IoSearch className='absolute ml-2' />

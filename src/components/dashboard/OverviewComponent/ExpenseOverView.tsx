@@ -1,14 +1,8 @@
 import React from 'react'
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { IoMdArrowDropdown } from "react-icons/io";
 import SemiCircleDonut from './SemiCircleDonut';
 import Highcharts from "highcharts";
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import Dropdown from '@/components/Dropdown';
 
 
 interface ExpenseOver {
@@ -78,17 +72,7 @@ const ExpenseOverView = () => {
         <div className='w-full h-full bg-white rounded-lg flex flex-col px-2 xl:px-4 py-2'>
             <div className='w-full flex items-center md:justify-between justify-start gap-4'>
                 <p className='xl:text-xl text-[14px] font-bold flex items-center gap-2'>Expense Overview</p>
-                <div className='px-4 py-2 rounded-full flex items-center gap-2 border border-gray-400'>
-                    <DropdownMenu>
-                        <DropdownMenuTrigger className='flex items-center gap-2'>This Month <IoMdArrowDropdown /></DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                            <DropdownMenuItem>This Day</DropdownMenuItem>
-                            <DropdownMenuItem>This Week</DropdownMenuItem>
-                            <DropdownMenuItem>This Month</DropdownMenuItem>
-                            <DropdownMenuItem>This Year</DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
+                <Dropdown options={["This Day","This Week","This Month","This Year"]} />
             </div>
             <hr className='w-full bg-gray-400 mx-auto my-2' />
             <div className='w-full h-full flex items-center md:flex-row flex-col overflow-scroll'>

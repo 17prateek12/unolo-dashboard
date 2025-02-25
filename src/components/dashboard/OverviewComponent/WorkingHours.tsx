@@ -1,13 +1,7 @@
 import React from 'react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { IoMdArrowDropdown } from "react-icons/io";
 import SemiCircleDonut from './SemiCircleDonut';
 import Highcharts from "highcharts";
+import Dropdown from '@/components/Dropdown';
 
 const WorkingHours = () => {
 
@@ -18,8 +12,8 @@ const WorkingHours = () => {
       plotShadow: false,
       backgroundColor: "transparent",
     },
-    title:{
-       text:''
+    title: {
+      text: ''
     },
     xAxis: {
       categories: [
@@ -67,17 +61,7 @@ const WorkingHours = () => {
     <div className='w-full h-full flex flex-col bg-white rounded-lg px-2 lg:px-4 py-2'>
       <div className='flex items-center w-full justify-between'>
         <p className='xl:text-xl md:text-[14px] text-[12px]  font-bold flex items-center gap-2'>Daily Average Working Hours</p>
-        <div className='px-4 py-2 rounded-full flex items-center gap-2 border border-gray-400'>
-          <DropdownMenu>
-            <DropdownMenuTrigger className='flex items-center gap-2'>This Month <IoMdArrowDropdown /></DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>This Day</DropdownMenuItem>
-              <DropdownMenuItem>This Week</DropdownMenuItem>
-              <DropdownMenuItem>This Month</DropdownMenuItem>
-              <DropdownMenuItem>This Year</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+        <Dropdown options={["This Day", "This Week", "This Month", "This Year"]} />
       </div>
       <hr className='w-full bg-gray-400 mx-auto my-2' />
       <div className="py-0 px-0 mx-0 my-0 flex justify-center items-center w-full overflow-scroll">
